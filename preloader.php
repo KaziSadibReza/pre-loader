@@ -13,7 +13,11 @@ if (!defined('ABSPATH')) {
     exit('Direct access denied.');
 }
 
-// Enqueue Styles and Scripts properly
+/**
+ * Enqueue Styles and Scripts properly
+ *
+ * @return void
+ */
 function custom_preloader_enqueue_scripts() {
     // Register and enqueue inline styles
     wp_register_style('custom-preloader-style', false);
@@ -64,7 +68,11 @@ function custom_preloader_enqueue_scripts() {
     
     wp_add_inline_style('custom-preloader-style', $custom_css);
     
-    // Register and enqueue inline script
+    /**
+     * Enqueue the script with a unique handle and add inline script
+     * 
+     * @return void
+     */
     wp_register_script('custom-preloader-script', '', [], '', true);
     wp_enqueue_script('custom-preloader-script');
     
@@ -87,7 +95,11 @@ function custom_preloader_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'custom_preloader_enqueue_scripts');
 
-// Add preloader HTML using the wp_footer hook with high priority
+/**
+ * Add preloader HTML to the footer
+ *
+ * @return void
+ */
 function custom_preloader_add_html() {
     echo '<div class="preloader">
             <div class="preloader-half preloader-top"></div>
@@ -95,10 +107,3 @@ function custom_preloader_add_html() {
           </div>';
 }
 add_action('wp_footer', 'custom_preloader_add_html', 0);
-
-// Add a class to the body
-function custom_preloader_body_class($classes) {
-    $classes[] = 'has-preloader';
-    return $classes;
-}
-add_filter('body_class', 'custom_preloader_body_class');
