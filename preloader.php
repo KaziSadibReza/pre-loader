@@ -35,7 +35,7 @@ function custom_preloader_enqueue_scripts() {
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: #ff5722; /* Orange color similar to image */
+        background-color: #000000; /* color of the pre loader */
         transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
       }
 
@@ -49,7 +49,7 @@ function custom_preloader_enqueue_scripts() {
       .preloader-bottom {
         bottom: 0;
         left: 0;
-        clip-path: polygon(0% 50%, 0 100%, 100% 100%, 0 0);
+        clip-path: polygon(0% 50%, 0 100%, 101% 100%, 0 0);
         transform-origin: bottom left;
       }
 
